@@ -5,7 +5,7 @@ function PokemonForm({ createNewPoke }) {
 
   const initialPoke = {
     name: '',
-    hp: 0,
+    hp: '',
     sprites: {
       front: '',
       back: '',
@@ -66,6 +66,8 @@ function PokemonForm({ createNewPoke }) {
             label="hp"
             placeholder="hp"
             name="hp"
+            type="number"
+            step="1"
             value={newPoke.hp}
             onChange={handleChange}
           />
