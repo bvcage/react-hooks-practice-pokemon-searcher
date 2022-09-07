@@ -20,7 +20,7 @@ function PokemonPage() {
       <br />
       <Search searchVal={searchVal} onChange={handleSearch} />
       <br />
-      <PokemonCollection />
+      <PokemonCollection searchVal={searchVal} />
     </Container>
   );
 }

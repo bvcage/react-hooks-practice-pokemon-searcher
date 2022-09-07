@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import PokemonCard from "./PokemonCard";
 import { Card } from "semantic-ui-react";
 
-function PokemonCollection() {
+function PokemonCollection({ searchVal }) {
 
   const [pokeAry, setPokeAry] = useState([]);
 
@@ -12,7 +12,11 @@ function PokemonCollection() {
     .then(data => setPokeAry(data));
   },[]);
 
-  const pokeCards = pokeAry.map(pokemon => {
+  const pokesToDisplay = pokeAry.filter(pokemon => {
+    return pokemon.name.includes(searchVal);
+  })
+
+  const pokeCards = pokesToDisplay.map(pokemon => {
     return (
       <PokemonCard key={pokemon.id} pokemon={pokemon} />
     )
