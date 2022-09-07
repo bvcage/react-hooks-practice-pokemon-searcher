@@ -6,19 +6,17 @@ import { Container } from "semantic-ui-react";
 
 function PokemonPage() {
 
-  const POKE_URL = `http://localhost:3001/pokemon`;
-
   const [pokeAry, setPokeAry] = useState([]);
   const [searchVal, setSearchVal] = useState('');
 
   useEffect(() => {
-    fetch(POKE_URL)
+    fetch(`http://localhost:3001/pokemon`)
     .then(r => r.json())
     .then(data => setPokeAry(data));
   },[]);
 
   function handleNewPoke (newPoke) {
-    fetch(POKE_URL, {
+    fetch(`http://localhost:3001/pokemon`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
