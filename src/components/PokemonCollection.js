@@ -2,15 +2,15 @@ import React, { useEffect, useState } from "react";
 import PokemonCard from "./PokemonCard";
 import { Card } from "semantic-ui-react";
 
-function PokemonCollection({ searchVal }) {
+function PokemonCollection({ pokeAry, searchVal }) {
 
-  const [pokeAry, setPokeAry] = useState([]);
+  // const [pokeAry, setPokeAry] = useState([]);
 
-  useEffect(() => {
-    fetch(`http://localhost:3001/pokemon`)
-    .then(r => r.json())
-    .then(data => setPokeAry(data));
-  },[]);
+  // useEffect(() => {
+  //   fetch(`http://localhost:3001/pokemon`)
+  //   .then(r => r.json())
+  //   .then(data => setPokeAry(data));
+  // },[]);
 
   const pokesToDisplay = pokeAry.filter(pokemon => {
     return pokemon.name.includes(searchVal);
